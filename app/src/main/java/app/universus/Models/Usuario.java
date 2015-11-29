@@ -1,5 +1,7 @@
 package app.universus.Models;
 
+import android.graphics.Bitmap;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +16,9 @@ public class Usuario{
     private String email;
     
     private Foto fotoDePerfil;
+	private Bitmap imagen;
+
+	List<Grupo> grupos;
 	List<Notificacion> notificaciones;
 
     public Usuario(String alias, String contrasenya,
@@ -22,9 +27,18 @@ public class Usuario{
         this.contrasenya = contrasenya;
         this.matricula = matricula;
         this.email = email;
-		notificaciones = new ArrayList<Notificacion>();
+		notificaciones = new ArrayList<>();
+		grupos = new ArrayList<>();
     }
-    
+
+	public Bitmap getImagen(){
+		return imagen;
+	}
+
+	public void setImagen(Bitmap imagen){
+		this.imagen = imagen;
+	}
+
     public boolean resgitrarse(){
 		 return true;
     }
