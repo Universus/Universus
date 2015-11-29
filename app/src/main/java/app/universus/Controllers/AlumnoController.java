@@ -3,6 +3,7 @@ package app.universus.Controllers;
 import app.universus.Drawer.Elemento;
 import app.universus.Fragments.Articulo;
 import app.universus.Fragments.HomeFragment;
+import app.universus.Fragments.NotificacionCrearFragment;
 import app.universus.Models.Alumno;
 import app.universus.Models.Usuario;
 import app.universus.com.universus.R;
@@ -44,6 +45,10 @@ public class AlumnoController {
             case 0:
                 HomeFragment home = HomeFragment.newInstance(args, usuario);
                 return home;
+            case 1:
+                NotificacionCrearFragment crearnotificacion =
+                        NotificacionCrearFragment.newInstance(args);
+                return crearnotificacion;
             default:
                 Articulo nuevo = Articulo.newInstance(args);
                 return nuevo;
