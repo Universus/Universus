@@ -29,6 +29,7 @@ public class HomeFragment extends Fragment{
     public HomeFragment() {
     }
 
+    Notificacion defecto;
     Usuario usuario;
 
     @Override
@@ -40,9 +41,6 @@ public class HomeFragment extends Fragment{
         String articulo = getArguments().getString(TITULO);
 
         List<Notificacion> items = usuario.getNotificaciones();
-        if(items.isEmpty())
-            items.add(new Notificacion(BitmapFactory.decodeResource(container.getResources(),
-                    R.drawable.diana_1), "Sin notificaciones", -1, null));
         recycler = (RecyclerView) rootView.findViewById(R.id.area_de_notificacion);
         recycler.setHasFixedSize(true);
 
