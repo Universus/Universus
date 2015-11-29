@@ -33,21 +33,6 @@ public class  Main  extends BaseActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         usuario = AlumnoController.getDefault();
-        usuario.addNotificacion(
-                new Notificacion(
-                    BitmapFactory.decodeResource(getResources(),
-                            R.drawable.leona_1), "Hacer tarea de progra",
-                    Notificacion.IMPORTANTE, "mi casa"
-                )
-        );
-
-        usuario.addNotificacion(
-                new Notificacion(
-                        BitmapFactory.decodeResource(getResources(),
-                                R.drawable.diana_1), "Ver Scorpion",
-                        Notificacion.IMPORTANTE, "mi casa otra vez XD"
-                )
-        );
         usuarioController = new UsuarioController();
         usuarioController.setUsuario(usuario);
         inicializaDrawer();

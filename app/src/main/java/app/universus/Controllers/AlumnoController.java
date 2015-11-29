@@ -47,7 +47,7 @@ public class AlumnoController {
                 return home;
             case 1:
                 NotificacionCrearFragment crearnotificacion =
-                        NotificacionCrearFragment.newInstance(args);
+                        NotificacionCrearFragment.newInstance(args, usuario);
                 return crearnotificacion;
             default:
                 Articulo nuevo = Articulo.newInstance(args);

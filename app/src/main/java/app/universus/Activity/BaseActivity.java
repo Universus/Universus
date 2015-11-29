@@ -90,7 +90,7 @@ public class  BaseActivity  extends  ActionBarActivity {
         }
     }
 
-    protected void selectItem(int position) {
+    public void selectItem(int position) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.content_frame,
                 usuarioController.getSeleccion(position)
