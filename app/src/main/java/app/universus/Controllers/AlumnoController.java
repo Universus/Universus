@@ -2,9 +2,11 @@ package app.universus.Controllers;
 
 import app.universus.Drawer.Elemento;
 import app.universus.Fragments.Articulo;
+import app.universus.Drawer.GrupoFragment;
 import app.universus.Fragments.HomeFragment;
 import app.universus.Fragments.NotificacionCrearFragment;
 import app.universus.Models.Alumno;
+import app.universus.Models.Grupo;
 import app.universus.Models.Usuario;
 import app.universus.com.universus.R;
 
@@ -49,6 +51,16 @@ public class AlumnoController {
                 NotificacionCrearFragment crearnotificacion =
                         NotificacionCrearFragment.newInstance(args, usuario);
                 return crearnotificacion;
+            case 2:
+                Grupo grupo = new Grupo("Prueba", R.drawable.diana_1);
+
+                grupo.addAlumno(AlumnoController.getDefault());
+                grupo.addAlumno(AlumnoController.getDefault());
+                grupo.addAlumno(AlumnoController.getDefault());
+
+                GrupoFragment grupoFragment =
+                        GrupoFragment.newInstance(args, grupo);
+                return grupoFragment;
             default:
                 Articulo nuevo = Articulo.newInstance(args);
                 return nuevo;

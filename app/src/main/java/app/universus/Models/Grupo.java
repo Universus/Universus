@@ -1,6 +1,12 @@
 package app.universus.Models;
 
+import android.support.annotation.NonNull;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 
 public class Grupo {
     List<Usuario> alumnos;
@@ -11,6 +17,8 @@ public class Grupo {
     public Grupo(String nombre, int imagen){
         this.nombre = nombre;
         this.imagen = imagen;
+        alumnos = new ArrayList<>();
+        profesores = new ArrayList<>();
     }
 
     public void addAlumno(Alumno alumno){
