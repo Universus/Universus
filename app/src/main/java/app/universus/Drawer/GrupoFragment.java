@@ -21,8 +21,8 @@ public class GrupoFragment extends Fragment{
     public static final String ARG_ARTICLES_NUMBER = "articles_number";
     public static final String TITULO = "titulo";
 
-    private RecyclerView alumnos;
-    private RecyclerView profesores;
+    private RecyclerView alumnosView;
+    private RecyclerView profesoresView;
 
     private RecyclerView.Adapter adapterAlumnos;
     private RecyclerView.Adapter adapterProfesores;
@@ -54,11 +54,11 @@ public class GrupoFragment extends Fragment{
         TextView tituloGrupo = (TextView) rootView.findViewById(R.id.grupo__titulo);
         tituloGrupo.setText(grupo.getNombre());
 
-        profesores = (RecyclerView) rootView.findViewById(R.id.grupo__profesores);
+        alumnosView = (RecyclerView) rootView.findViewById(R.id.grupo__alumnos);
         layoutManager = new LinearLayoutManager(container.getContext());
-        profesores.setLayoutManager(layoutManager);
+        alumnosView.setLayoutManager(layoutManager);
         adapterAlumnos = new UsuarioAdapter(alumnos);
-        profesores.setAdapter(adapterAlumnos);
+        alumnosView.setAdapter(adapterAlumnos);
 
         return rootView;
     }
