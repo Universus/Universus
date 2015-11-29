@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="100dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/notificacion_item__imagen"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Large Text"
+            android:id="@+id/notificacion_item__descripcion"
+            android:layout_toRightOf="@id/notificacion_item__imagen"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="10dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id = "@+id/notificacion_item__lugar"
+            android:layout_below="@+id/notificacion_item__descripcion"
+            android:layout_alignLeft="@+id/notificacion_item__descripcion"
+            android:layout_alignStart="@+id/notificacion_item__descripcion"
+            android:layout_above="@+id/notificacion_item__icono" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/notificacion_item__icono"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:scaleType="centerCrop" />
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:background="#ffd5d5d5"
+            android:id="@+id/notificacion_item__linea"
+            android:layout_above="@id/notificacion_item__icono"
+            android:layout_toRightOf="@id/notificacion_item__imagen">
+
+        </View>
+    </RelativeLayout>
+
+
+</android.support.v7.widget.CardView>

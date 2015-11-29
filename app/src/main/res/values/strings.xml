@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Universus</string>
+
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_example">Example action</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="notificaciones" >Actividades Pendientes</string>
+    <string-array name="items_menu_izquierdo">
+        <item>Home</item>
+        <item>Perfil</item>
+        <item>Profesores</item>
+        <item>Materias</item>
+    </string-array>
+
+    <string-array name="profesores">
+        <item>Profesor_1</item>
+        <item>Profesor_2</item>
+        <item>Profesor_3</item>
+        <item>Profesor_4</item>
+    </string-array>
+</resources>
