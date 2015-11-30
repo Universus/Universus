@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/ImgFoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/buap"
+        android:scaleType="centerCrop"
+        android:contentDescription="JulioProfe" />
+
+    <TextView
+        android:id="@+id/profe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="JuanJose"
+        android:typeface="sans"
+        />
+
+
+    <TextView
+        android:id="@+id/cubo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Comentar un profesor"
+        android:typeface="sans"
+        />
+
+
+
+  <EditText
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:inputType="text"/>
+
+
+</LinearLayout>
