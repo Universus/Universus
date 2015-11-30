@@ -12,6 +12,7 @@ import app.universus.Controllers.AlumnoController;
 import app.universus.Controllers.ProfesorController;
 import app.universus.Controllers.UsuarioController;
 import app.universus.Models.Profesor;
+import app.universus.Models.UniversusBDDAdministrador;
 import app.universus.Models.Usuario;
 import app.universus.com.universus.R;
 import io.realm.Realm;
@@ -36,8 +37,8 @@ public class  Main  extends BaseActivity{
         setContentView(R.layout.activity_main);
         usuario = AlumnoController.getDefault();
 
-        Realm realm = Realm.getInstance(getApplicationContext());
-        RealmResults<Notificacion> r = realm.where(Notificacion.class).findAll();
+        RealmResults<Notificacion> r = new UniversusBDDAdministrador(getApplicationContext())
+                .getNotificaciones();
 
         for(Notificacion nueva : r){
             usuario.addNotificacion(nueva);

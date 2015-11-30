@@ -76,15 +76,12 @@ public class HomeFragment extends Fragment
     @Override
     public void onClick(View v) {
         int i = recycler.getChildPosition(v);
-        Log.i("Prueba", "Eliminadno elemento en la posicion" + i);
-
         recycler.removeViewAt(i);
         if(!usuario.getNotificaciones().isEmpty()){
             Notificacion notificacion = usuario.getNotificaciones().get(i);
             usuario.getNotificaciones().remove(i);
             UniversusBDDAdministrador.remover(notificacion, v.getContext());
         }
-
         v.refreshDrawableState();
     }
 }

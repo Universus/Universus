@@ -9,49 +9,59 @@ import io.realm.RealmObject;
 import io.realm.RealmResults;
 
 public class UniversusBDDAdministrador {
-    UniversusBDDAdministrador(){
 
+    Realm alumnosRealm;
+    Realm profesoresRealm;
+    Realm notificacionesRealm;
+
+    public  UniversusBDDAdministrador(Context context){
+        alumnosRealm = Realm.getInstance(context, "alumnos.realm");
+        profesoresRealm = Realm.getInstance(context, "profesores.realm");
+        notificacionesRealm = Realm.getInstance(context, "notificaciones.realm");
     }
 
     public static boolean guardar(RealmObject objeto, Context context){
         if(objeto instanceof Notificacion)
-            new UniversusBDDAdministrador().guardarNotificacion((Notificacion) objeto, context);
+            new UniversusBDDAdministrador(context).guardarNotificacion((Notificacion) objeto, context);
         return true;
     }
 
     public boolean guardarNotificacion(Notificacion objeto, Context context){
-        Realm realm = Realm.getInstance(context);
-        realm.beginTransaction();
-        Notificacion nuevo = realm.createObject(Notificacion.class);
+        notificacionesRealm.beginTransaction();
+        Notificacion nuevo = notificacionesRealm.createObject(Notificacion.class);
         nuevo.setDescripcion(objeto.getDescripcion());
         nuevo.setLugar(objeto.getLugar());
         nuevo.setIcono(objeto.getIcono());
         nuevo.setImagen(objeto.getImagen());
-        realm.commitTransaction();
+        notificacionesRealm.commitTransaction();
         return true;
     }
 
     public static boolean remover(RealmObject objecto, Context context) {
         if (objecto instanceof Notificacion) {
-            new UniversusBDDAdministrador().removerNotificacion((Notificacion) objecto, context);
+            new UniversusBDDAdministrador(context).removerNotificacion((Notificacion) objecto, context);
         }
         return true;
     }
 
     public boolean removerNotificacion(Notificacion objeto, Context context){
-        Realm realm = Realm.getInstance(context);
-        RealmResults<Notificacion> r = realm.where(Notificacion.class)
+
+        RealmResults<Notificacion> r = notificacionesRealm.where(Notificacion.class)
                 .beginGroup()
                     .equalTo("descripcion", objeto.getDescripcion())
                     .equalTo("lugar", objeto.getLugar())
                 .endGroup()
                 .findAll();
-        realm.beginTransaction();
+        notificacionesRealm.beginTransaction();
 
         Notificacion encontrada = r.first();
         encontrada.removeFromRealm();
 
-        realm.commitTransaction();
+        notificacionesRealm.commitTransaction();
         return true;
+    }
+
+    public RealmResults<Notificacion> getNotificaciones(){
+        return notificacionesRealm.where(Notificacion.class).findAll();
     }
 }
