@@ -14,8 +14,7 @@ public class Usuario{
     private String contrasenya;
     private String matricula;
     private String email;
-    
-    private Foto fotoDePerfil;
+
 	private Bitmap imagen;
 
 	List<Grupo> grupos;

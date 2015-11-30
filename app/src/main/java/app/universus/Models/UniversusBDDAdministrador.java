@@ -1,10 +1,14 @@
 package app.universus.Models;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.util.Log;
+
+import java.util.List;
 
 import app.universus.AreaDeNotificacion.Notificacion;
 import io.realm.Realm;
+import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.RealmResults;
 
@@ -20,9 +24,11 @@ public class UniversusBDDAdministrador {
         notificacionesRealm = Realm.getInstance(context, "notificaciones.realm");
     }
 
-    public static boolean guardar(RealmObject objeto, Context context){
+    public static boolean guardar(Object objeto, Context context){
         if(objeto instanceof Notificacion)
             new UniversusBDDAdministrador(context).guardarNotificacion((Notificacion) objeto, context);
+        if(objeto instanceof Usuario)
+            new UniversusBDDAdministrador(context).guardarUsuario((Usuario) objeto, context);
         return true;
     }
 
@@ -64,4 +70,11 @@ public class UniversusBDDAdministrador {
     public RealmResults<Notificacion> getNotificaciones(){
         return notificacionesRealm.where(Notificacion.class).findAll();
     }
+
+    public void guardarUsuario(Usuario usuario, Context context){
+
+    }
+
+
+
 }

@@ -17,7 +17,7 @@ public class Alumno extends Usuario{
         return true;
     }
 
-	
+
 	public void setEdad(int edad){
 		this.edad = edad;
 	}
