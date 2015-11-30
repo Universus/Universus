@@ -98,7 +98,7 @@ public class NotificacionCrearFragment extends Fragment implements View.OnClickL
                         R.id.notificacion_crear__descripcion);
 
                 String descripcion  = descripcionEntrada.getText().toString();
-                if (descripcion.matches("") || descripcion.length() < 20) {
+                if (descripcion.matches("") || descripcion.length() < 10) {
                     Toast.makeText(v.getContext(), "Debes ingresar una descripcion",
                             Toast.LENGTH_SHORT).show();
                     return;
@@ -114,8 +114,8 @@ public class NotificacionCrearFragment extends Fragment implements View.OnClickL
                     }
 
                     Notificacion nueva = NotificacionFactory.newInstance(
-                            R.drawable.diana_1, descripcion,
-                            NotificacionFactory.getImportanciaIcono(posicionSeleccion),lugar);
+                            NotificacionFactory.getImportanciaIcono(posicionSeleccion), descripcion,
+                            R.drawable.diana_1 ,lugar);
 
                     usuario.addNotificacion(nueva);
                     Toast.makeText(v.getContext(), "Notificacion enviada",

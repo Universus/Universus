@@ -34,12 +34,13 @@
             android:layout_alignLeft="@+id/notificacion_item__descripcion"
             android:layout_alignStart="@+id/notificacion_item__descripcion" />
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+        <ImageButton
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:id="@+id/notificacion_item__icono"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
+            android:background="@android:color/transparent"
             android:scaleType="centerCrop" />
 
         <View
