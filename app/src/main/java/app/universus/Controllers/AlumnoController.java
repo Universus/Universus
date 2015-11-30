@@ -10,6 +10,7 @@ import app.universus.Models.Grupo;
 import app.universus.Models.Usuario;
 import app.universus.com.universus.R;
 
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
@@ -54,9 +55,10 @@ public class AlumnoController {
             case 2:
                 Grupo grupo = new Grupo("Prueba", R.drawable.diana_1);
 
-                grupo.addAlumno(AlumnoController.getDefault());
-                grupo.addAlumno(AlumnoController.getDefault());
-                grupo.addAlumno(AlumnoController.getDefault());
+                Alumno alumno1 = new Alumno("Pepe", "1234", "1234", "12341");
+                Alumno alumno2 = new Alumno("Pepe", "1234", "1234", "12341");
+                Alumno alumno3 = new Alumno("Pepe", "1234", "1234", "12341");
+                Alumno alumno4 = new Alumno("Pepe", "1234", "1234", "12341");
 
                 GrupoFragment grupoFragment =
                         GrupoFragment.newInstance(args, grupo);
