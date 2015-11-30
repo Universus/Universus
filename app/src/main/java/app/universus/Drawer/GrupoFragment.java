@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -36,9 +37,13 @@ public class GrupoFragment extends Fragment{
 
     public static GrupoFragment newInstance(Bundle args,Grupo grupo){
         GrupoFragment nuevo = new GrupoFragment();
+        nuevo.setGrupo(grupo);
         nuevo.setArguments(args);
-        nuevo.grupo = grupo;
         return nuevo;
+    }
+
+    public void setGrupo(Grupo grupo){
+        this.grupo = grupo;
     }
 
     @Override
@@ -48,8 +53,10 @@ public class GrupoFragment extends Fragment{
         View rootView = inflater.inflate(R.layout.grupo_lista_layout, container, false);
         int i = getArguments().getInt(ARG_ARTICLES_NUMBER);
 
-        List<Usuario> alumnos = grupo.getAlumnos();
         ImageView imagenGrupo = (ImageView) rootView.findViewById(R.id.grupo__imagen);
+
+        List<Usuario> alumnos = grupo.getAlumnos();
+
         imagenGrupo.setImageResource(grupo.getImagen());
         TextView tituloGrupo = (TextView) rootView.findViewById(R.id.grupo__titulo);
         tituloGrupo.setText(grupo.getNombre());

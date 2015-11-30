@@ -9,7 +9,7 @@
         android:id="@+id/ImgFoto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/buap"
+        android:src="@drawable/diana_1"
         android:scaleType="centerCrop"
         android:contentDescription="JulioProfe" />
 

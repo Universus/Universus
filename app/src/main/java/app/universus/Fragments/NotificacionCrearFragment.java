@@ -121,7 +121,7 @@ public class NotificacionCrearFragment extends Fragment implements View.OnClickL
                         lugar = lugarEntrada.getText().toString();
                     }
                     if(elemento == null)
-                        elemento = new Elemento("Pene", Notificacion.ESTANDAR);
+                        elemento = new Elemento("Prueba", Notificacion.ESTANDAR);
                     usuario.addNotificacion(new Notificacion(
                             BitmapFactory.decodeResource(v.getResources(), R.drawable.diana_1),
                             descripcion, elemento.getPath(), lugar

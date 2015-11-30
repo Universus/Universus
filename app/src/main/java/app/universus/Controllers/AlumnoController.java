@@ -1,6 +1,7 @@
 package app.universus.Controllers;
 
 import app.universus.Drawer.Elemento;
+import app.universus.Fragments.AlumnoPerfilFragment;
 import app.universus.Fragments.Articulo;
 import app.universus.Drawer.GrupoFragment;
 import app.universus.Fragments.HomeFragment;
@@ -60,9 +61,18 @@ public class AlumnoController {
                 Alumno alumno3 = new Alumno("Pepe", "1234", "1234", "12341");
                 Alumno alumno4 = new Alumno("Pepe", "1234", "1234", "12341");
 
+                grupo.addAlumno(alumno1);
+                grupo.addAlumno(alumno2);
+                grupo.addAlumno(alumno3);
+                grupo.addAlumno(alumno4);
+
                 GrupoFragment grupoFragment =
                         GrupoFragment.newInstance(args, grupo);
                 return grupoFragment;
+            case 3:
+                AlumnoPerfilFragment alumnoPerfilFragment =
+                        AlumnoPerfilFragment.newInstance(args, (Alumno) usuario);
+                return alumnoPerfilFragment;
             default:
                 Articulo nuevo = Articulo.newInstance(args);
                 return nuevo;

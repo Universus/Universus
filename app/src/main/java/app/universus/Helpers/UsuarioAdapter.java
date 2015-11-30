@@ -9,9 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.List;
-
-import app.universus.AreaDeNotificacion.Notificacion;
-import app.universus.AreaDeNotificacion.NotificacionViewHolder;
 import app.universus.Models.Usuario;
 import app.universus.com.universus.R;
 
