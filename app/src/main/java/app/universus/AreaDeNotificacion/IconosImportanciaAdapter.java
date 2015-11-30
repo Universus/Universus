@@ -58,12 +58,9 @@ public class IconosImportanciaAdapter extends BaseExpandableListAdapter {
 
             TextView descripcion = (TextView) convertView
                     .findViewById(R.id.elemento__descripcionr);
-
             descripcion.setText(hijo.getDescipcion());
-
             ImageView imagen = (ImageView) convertView
                     .findViewById(R.id.elemento__imagen);
-
             imagen.setImageResource(hijo.getPath());
             return convertView;
         }
@@ -98,16 +95,13 @@ public class IconosImportanciaAdapter extends BaseExpandableListAdapter {
                         .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 convertView = infalInflater.inflate(R.layout.elemento_view, null);
             }
-
             TextView descriocion = (TextView) convertView
                     .findViewById(R.id.elemento__descripcionr);
             descriocion .setTypeface(null, Typeface.BOLD);
             descriocion .setText(padre.getDescipcion());
-
             ImageView imagen = (ImageView) convertView
                     .findViewById(R.id.elemento__imagen);
             imagen.setImageResource(padre.getPath());
-
             return convertView;
         }
 

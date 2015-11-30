@@ -1,15 +1,19 @@
 package app.universus.Fragments;
 
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +23,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.xml.parsers.FactoryConfigurationError;
+
 import app.universus.AreaDeNotificacion.IconosImportanciaAdapter;
 import app.universus.AreaDeNotificacion.Notificacion;
 import app.universus.Controllers.AlumnoController;
@@ -27,18 +33,14 @@ import app.universus.Drawer.Elemento;
 import app.universus.Models.*;
 import app.universus.com.universus.R;
 
-public class NotificacionCrearFragment extends Fragment implements View.OnClickListener{
+public class NotificacionCrearFragment extends Fragment implements View.OnClickListener, AdapterView.OnItemSelectedListener {
     public static final String ARG_ARTICLES_NUMBER = "articles_number";
     public static final String TITULO = "titulo";
 
-    private ExpandableListView expandableListViews;
-    private IconosImportanciaAdapter listAdapter;
-
-    private List<Elemento> padres;
-    private HashMap<String, List<Elemento>> opciones;
     View rootView;
     Usuario usuario;
     ViewGroup container;
+    int posicionSeleccion;
 
     public NotificacionCrearFragment() {
     }
@@ -49,31 +51,23 @@ public class NotificacionCrearFragment extends Fragment implements View.OnClickL
         rootView = inflater.inflate(R.layout.notificacion_create_fragment, container, false);
         this.container = container;
 
-        expandableListViews = (ExpandableListView) rootView.findViewById(R.id.notificacion_crear__importancia);
-        if (expandableListViews != null) {
-            agregaOpciones();
-            listAdapter = new IconosImportanciaAdapter(container.getContext(), padres, opciones);
-            expandableListViews.setAdapter(listAdapter);
-        }
+        Spinner spinner = (Spinner) rootView.findViewById(R.id.spinner);
+
+        spinner.setOnItemSelectedListener(this);
+
+        List<String> categories = Notificacion.getImportanciaEtiquetas();
+
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(container.getContext(),
+                android.R.layout.simple_spinner_item, categories);
+
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(dataAdapter);
 
         Button enviar = (Button) rootView.findViewById(R.id.notificacion_crear__enviar);
         enviar.setOnClickListener(this);
         return rootView;
     }
 
-    private void agregaOpciones(){
-        padres = new ArrayList<>();
-        opciones = new HashMap<>();
-
-        padres.add(new Elemento("Importancia", R.drawable.diana_1));
-
-        List<Elemento> lista = new ArrayList<Elemento>();
-        lista.add(new Elemento("Importante", Notificacion.IMPORTANTE));
-        lista.add(new Elemento("Recordatorio", Notificacion.RECORDATORIO));
-        lista.add(new Elemento("Estandar", Notificacion.ESTANDAR));
-
-        opciones.put(padres.get(0).getDescipcion(), lista);
-    }
 
     public void setUsuario(Usuario usuario){
         this.usuario = usuario;
@@ -109,9 +103,6 @@ public class NotificacionCrearFragment extends Fragment implements View.OnClickL
                     return;
                 }
                 else{
-                    ExpandableListView lista = (ExpandableListView) rootView.findViewById(
-                            R.id.notificacion_crear__importancia);
-                    Elemento elemento = (Elemento) lista.getSelectedItem();
                     EditText lugarEntrada = (EditText) rootView.findViewById(R.id.notificacion_crear__lugar);
                     String lugar;
                     if(lugarEntrada.getText() == null){
@@ -120,11 +111,9 @@ public class NotificacionCrearFragment extends Fragment implements View.OnClickL
                     else{
                         lugar = lugarEntrada.getText().toString();
                     }
-                    if(elemento == null)
-                        elemento = new Elemento("Prueba", Notificacion.ESTANDAR);
                     usuario.addNotificacion(new Notificacion(
-                            BitmapFactory.decodeResource(v.getResources(), R.drawable.diana_1),
-                            descripcion, elemento.getPath(), lugar
+                            BitmapFactory.decodeResource(rootView.getResources(), R.drawable.diana_1),
+                            descripcion, Notificacion.getImportanciaIcono(posicionSeleccion), lugar
                             ));
                     Toast.makeText(v.getContext(), "Notificacion enviada",
                             Toast.LENGTH_SHORT).show();
@@ -132,5 +121,15 @@ public class NotificacionCrearFragment extends Fragment implements View.OnClickL
                 }
                 break;
         }
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        posicionSeleccion = position;
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+        posicionSeleccion = 0;
     }
 }
