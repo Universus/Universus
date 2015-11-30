@@ -2,10 +2,7 @@ package app.universus.RealmObjects;
 
 import io.realm.RealmObject;
 
-/**
- * Created by win7 on 30/11/2015.
- */
-public class AlumnoRealmObject extends UsuarioRealmObject{
+public class AlumnoRealmObject extends RealmObject{
     private int edad;
 
     public int getEdad() {

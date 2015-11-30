@@ -1,11 +1,5 @@
 package app.universus.RealmObjects;
 
-import android.graphics.Bitmap;
-
-import java.util.List;
-
-import app.universus.AreaDeNotificacion.Notificacion;
-import app.universus.Models.Grupo;
 import io.realm.RealmList;
 import io.realm.RealmObject;
 
@@ -14,8 +8,6 @@ public class UsuarioRealmObject extends RealmObject{
     private String contrasenya;
     private String matricula;
     private String email;
-
-    private Bitmap imagen;
 
     private RealmList<GrupoRealmObject> grupos;
     private RealmList<Notificacion> notificaciones;
@@ -52,13 +44,6 @@ public class UsuarioRealmObject extends RealmObject{
         this.email = email;
     }
 
-    public Bitmap getImagen() {
-        return imagen;
-    }
-
-    public void setImagen(Bitmap imagen) {
-        this.imagen = imagen;
-    }
 
     public RealmList<GrupoRealmObject> getGrupos() {
         return grupos;

@@ -1,17 +1,16 @@
 package app.universus.AreaDeNotificacion;
 
 
-import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 
 import java.util.List;
 
 import app.universus.Helpers.ImagenCircular;
+import app.universus.RealmObjects.Notificacion;
 import app.universus.com.universus.R;
 
 public class NotificacionAdapter extends RecyclerView.Adapter<NotificacionViewHolder>

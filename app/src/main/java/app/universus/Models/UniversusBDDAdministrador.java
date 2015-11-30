@@ -1,14 +1,9 @@
 package app.universus.Models;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.util.Log;
 
-import java.util.List;
-
-import app.universus.AreaDeNotificacion.Notificacion;
+import app.universus.RealmObjects.Notificacion;
 import io.realm.Realm;
-import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.RealmResults;
 

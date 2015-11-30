@@ -3,30 +3,29 @@ package app.universus.RealmObjects;
 import java.util.List;
 
 import app.universus.Models.Usuario;
+import io.realm.RealmList;
 import io.realm.RealmObject;
 
-/**
- * Created by win7 on 30/11/2015.
- */
-public class GrupoRealmObject extends RealmObject{
-    List<Usuario> alumnos;
-    List<Usuario> profesores;
-    int imagen;
-    String nombre;
 
-    public List<Usuario> getAlumnos() {
+public class GrupoRealmObject extends RealmObject{
+    private RealmList<UsuarioRealmObject> alumnos;
+    private RealmList<UsuarioRealmObject> profesores;
+    private int imagen;
+    private String nombre;
+
+    public RealmList<UsuarioRealmObject> getAlumnos() {
         return alumnos;
     }
 
-    public void setAlumnos(List<Usuario> alumnos) {
+    public void setAlumnos(RealmList<UsuarioRealmObject> alumnos) {
         this.alumnos = alumnos;
     }
 
-    public List<Usuario> getProfesores() {
+    public RealmList<UsuarioRealmObject> getProfesores() {
         return profesores;
     }
 
-    public void setProfesores(List<Usuario> profesores) {
+    public void setProfesores(RealmList<UsuarioRealmObject> profesores) {
         this.profesores = profesores;
     }
 

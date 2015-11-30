@@ -1,9 +1,5 @@
 package app.universus.Models;
 
-import java.util.List;
-
-import app.universus.AreaDeNotificacion.Notificacion;
-
 public class Alumno extends Usuario{
 
     private int edad;

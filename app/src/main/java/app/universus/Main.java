@@ -1,21 +1,17 @@
 package app.universus;
 
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.ListView;
 
 import app.universus.Activity.BaseActivity;
-import app.universus.AreaDeNotificacion.Notificacion;
+import app.universus.RealmObjects.Notificacion;
 import app.universus.Controllers.AlumnoController;
-import app.universus.Controllers.ProfesorController;
 import app.universus.Controllers.UsuarioController;
-import app.universus.Models.Profesor;
 import app.universus.Models.UniversusBDDAdministrador;
 import app.universus.Models.Usuario;
 import app.universus.com.universus.R;
-import io.realm.Realm;
 import io.realm.RealmResults;
 
 

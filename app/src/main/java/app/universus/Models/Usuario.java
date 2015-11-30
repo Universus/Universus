@@ -5,9 +5,7 @@ import android.graphics.Bitmap;
 import java.util.ArrayList;
 import java.util.List;
 
-import app.universus.AreaDeNotificacion.Notificacion;
-import app.universus.Helpers.Foto;
-import io.realm.RealmObject;
+import app.universus.RealmObjects.Notificacion;
 
 public class Usuario{
     private String alias;

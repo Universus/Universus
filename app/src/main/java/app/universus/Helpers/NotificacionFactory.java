@@ -3,7 +3,7 @@ package app.universus.Helpers;
 import java.util.ArrayList;
 import java.util.List;
 
-import app.universus.AreaDeNotificacion.Notificacion;
+import app.universus.RealmObjects.Notificacion;
 import app.universus.com.universus.R;
 import io.realm.annotations.Ignore;
 

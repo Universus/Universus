@@ -1,7 +1,5 @@
 package app.universus.Fragments;
 
-import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -12,24 +10,14 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ExpandableListView;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
-import javax.xml.parsers.FactoryConfigurationError;
-
-import app.universus.AreaDeNotificacion.IconosImportanciaAdapter;
-import app.universus.AreaDeNotificacion.Notificacion;
+import app.universus.RealmObjects.Notificacion;
 import app.universus.Controllers.AlumnoController;
 import app.universus.Controllers.ProfesorController;
-import app.universus.Drawer.Elemento;
 import app.universus.Helpers.NotificacionFactory;
 import app.universus.Models.*;
 import app.universus.com.universus.R;
