@@ -1,6 +1,8 @@
 package app.universus.AreaDeNotificacion;
 
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,8 +34,12 @@ public class NotificacionAdapter extends RecyclerView.Adapter<NotificacionViewHo
 
     @Override
     public void onBindViewHolder(NotificacionViewHolder viewHolder, int i) {
-        ImagenCircular imagen = new ImagenCircular(items.get(i).getImagen());
-        viewHolder.imagen.setImageDrawable(imagen);
+        viewHolder.imagenView.setImageDrawable(
+                new ImagenCircular(
+                        BitmapFactory.decodeResource(viewHolder.view.getResources(),
+                                items.get(i).getImagen())
+                )
+        );
         viewHolder.descripcion.setText(items.get(i).getDescripcion());
 
         if(items.get(i).getIcono() != -1)

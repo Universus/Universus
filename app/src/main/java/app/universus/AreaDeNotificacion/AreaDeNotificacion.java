@@ -21,6 +21,7 @@ import app.universus.Activity.BaseActivity;
 import app.universus.Drawer.DrawerItem;
 import app.universus.Drawer.DrawerListAdapter;
 import app.universus.Fragments.Articulo;
+import app.universus.Helpers.NotificacionFactory;
 import app.universus.com.universus.R;
 
 public class AreaDeNotificacion extends ActionBarActivity{
@@ -36,18 +37,18 @@ public class AreaDeNotificacion extends ActionBarActivity{
 
 
         List<Notificacion> items = new ArrayList<Notificacion>();
-        items.add(new Notificacion(BitmapFactory.decodeResource(getResources(), R.drawable.diana_1),
-                "Entregar libro", Notificacion.IMPORTANTE, "Biblioteca"));
-        items.add(new Notificacion(BitmapFactory.decodeResource(getResources(), R.drawable.riven_1),
-                "Ver Porno", Notificacion.IMPORTANTE, "Interner"));
-        items.add(new Notificacion(BitmapFactory.decodeResource(getResources(), R.drawable.leona_1),
-                "Faltar a progra", Notificacion.ESTANDAR, "CU"));
-        items.add(new Notificacion(BitmapFactory.decodeResource(getResources(), R.drawable.leona_2),
-                "Vender tacos", Notificacion.RECORDATORIO, "CU"));
-        items.add(new Notificacion(BitmapFactory.decodeResource(getResources(), R.drawable.diana_1),
-                "Comprar coca a Victor", Notificacion.IMPORTANTE, "Tienda o OXXO"));
-        items.add(new Notificacion(BitmapFactory.decodeResource(getResources(), R.drawable.diana_1),
-                "Comprar manga", Notificacion.IMPORTANTE, "No se U.U"));
+        items.add(NotificacionFactory.newInstance(R.drawable.diana_1,
+                "Entregar libro", NotificacionFactory.IMPORTANTE, "Biblioteca"));
+        items.add(NotificacionFactory.newInstance(R.drawable.riven_1,
+                "Ver Porno", NotificacionFactory.IMPORTANTE, "Interner"));
+        items.add(NotificacionFactory.newInstance(R.drawable.leona_1,
+                "Faltar a progra", NotificacionFactory.ESTANDAR, "CU"));
+        items.add(NotificacionFactory.newInstance(R.drawable.leona_2,
+                "Vender tacos", NotificacionFactory.RECORDATORIO, "CU"));
+        items.add(NotificacionFactory.newInstance( R.drawable.diana_1,
+                "Comprar coca a Victor", NotificacionFactory.IMPORTANTE, "Tienda o OXXO"));
+        items.add(NotificacionFactory.newInstance(R.drawable.diana_1,
+                "Comprar manga", NotificacionFactory.IMPORTANTE, "No se U.U"));
 
 
         recycler = (RecyclerView) findViewById(R.id.area_de_notificacion);

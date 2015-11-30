@@ -14,6 +14,8 @@ import app.universus.Controllers.UsuarioController;
 import app.universus.Models.Profesor;
 import app.universus.Models.Usuario;
 import app.universus.com.universus.R;
+import io.realm.Realm;
+import io.realm.RealmResults;
 
 
 public class  Main  extends BaseActivity{
@@ -33,6 +35,14 @@ public class  Main  extends BaseActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         usuario = AlumnoController.getDefault();
+
+        Realm realm = Realm.getInstance(getApplicationContext());
+        RealmResults<Notificacion> r = realm.where(Notificacion.class).findAll();
+
+        for(Notificacion nueva : r){
+            usuario.addNotificacion(nueva);
+        }
+
         usuarioController = new UsuarioController();
         usuarioController.setUsuario(usuario);
         inicializaDrawer();

@@ -30,6 +30,7 @@ import app.universus.AreaDeNotificacion.Notificacion;
 import app.universus.Controllers.AlumnoController;
 import app.universus.Controllers.ProfesorController;
 import app.universus.Drawer.Elemento;
+import app.universus.Helpers.NotificacionFactory;
 import app.universus.Models.*;
 import app.universus.com.universus.R;
 
@@ -55,7 +56,7 @@ public class NotificacionCrearFragment extends Fragment implements View.OnClickL
 
         spinner.setOnItemSelectedListener(this);
 
-        List<String> categories = Notificacion.getImportanciaEtiquetas();
+        List<String> categories = NotificacionFactory.getImportanciaEtiquetas();
 
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(container.getContext(),
                 android.R.layout.simple_spinner_item, categories);
@@ -111,12 +112,16 @@ public class NotificacionCrearFragment extends Fragment implements View.OnClickL
                     else{
                         lugar = lugarEntrada.getText().toString();
                     }
-                    usuario.addNotificacion(new Notificacion(
-                            BitmapFactory.decodeResource(rootView.getResources(), R.drawable.diana_1),
-                            descripcion, Notificacion.getImportanciaIcono(posicionSeleccion), lugar
-                            ));
+
+                    Notificacion nueva = NotificacionFactory.newInstance(
+                            R.drawable.diana_1, descripcion,
+                            NotificacionFactory.getImportanciaIcono(posicionSeleccion),lugar);
+
+                    usuario.addNotificacion(nueva);
                     Toast.makeText(v.getContext(), "Notificacion enviada",
                             Toast.LENGTH_SHORT).show();
+
+                    UniversusBDDAdministrador.guardar(nueva, v.getContext());
                     cambiarFragment(0);
                 }
                 break;

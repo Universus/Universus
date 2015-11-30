@@ -3,7 +3,7 @@ package app.universus.Controllers;
 import app.universus.Drawer.Elemento;
 import app.universus.Fragments.AlumnoPerfilFragment;
 import app.universus.Fragments.Articulo;
-import app.universus.Drawer.GrupoFragment;
+import app.universus.Fragments.GrupoFragment;
 import app.universus.Fragments.HomeFragment;
 import app.universus.Fragments.NotificacionCrearFragment;
 import app.universus.Models.Alumno;
@@ -11,7 +11,6 @@ import app.universus.Models.Grupo;
 import app.universus.Models.Usuario;
 import app.universus.com.universus.R;
 
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
