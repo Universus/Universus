@@ -5,4 +5,18 @@
     <color name="color_2">#5CB0C4</color>
     <color name="color_3">#575A56</color>
     <color name="color_4">#576765</color>
+
+    <!-- OurAppTheme -->
+    <color name="accent_color">#9C27B0</color>
+    <color name="highligh_color">#BA68C8</color>
+    <color name="general_background">#FAFAFA</color>
+    <color name="general_translucent_background">#80FAFAFA</color>
+    <!-- TextColor -->
+    <color name="text_color_purple">#BA68C8</color>
+    <color name="text_color_white">#FFFF</color>
+    <!-- ActionBar -->
+    <color name="action_bar_color">#4A148C</color>
+    <!-- Drawers -->
+    <color name="drawer_back_ground">#7B1FA2</color>
+    <color name="drawer_txt_color">#BA68C8</color>
 </resources>

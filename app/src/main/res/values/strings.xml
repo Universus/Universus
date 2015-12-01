@@ -25,4 +25,19 @@
         <item>Profesor_3</item>
         <item>Profesor_4</item>
     </string-array>
+
+    <!-- Login Layout -->
+    <string name="welcome">Bienvenido a Universus</string>
+    <string name="matricula">Matrícula</string>
+    <string name="contraseña">Contraseña</string>
+    <string name="btt_access">Iniciar sesión</string>
+    <string name="btt_register">Registrar</string>
+    <!-- Registrer Layout -->
+    <string name="hint_conf_contraseña">Conf. Contraseña</string>
+    <string name="creat">Crear</string>
+    <string name="creat_cuenta">Crear cuenta</string>
+    <string name="cancel">Cancelar</string>
+    <string name="cel">Teléfono</string>
+    <string name="correo">email@example.com</string>
+    <string name="nombre">Nombre</string>
 </resources>
