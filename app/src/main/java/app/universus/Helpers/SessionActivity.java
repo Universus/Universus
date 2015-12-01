@@ -2,7 +2,9 @@ package app.universus.Helpers;
 
 import android.app.Activity;
 import android.app.LauncherActivity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -20,13 +22,17 @@ import app.universus.com.universus.R;
 public class SessionActivity extends Activity {
 
     /*Elementos para interactuar*/
-
     private EditText matricula;
     private EditText contraseña;
     private EditText telefono;
     private EditText correo;
     private Button ingresar;
     private Button registrarse;
+
+    /*Shared Preferences*/
+    SharedPreferences prefs;
+    String matriculaPref;
+    String contraseñaPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +43,7 @@ public class SessionActivity extends Activity {
             Intent i = new Intent(this, Main.class);
             Bundle bundle = new Bundle();
             bundle.putBoolean("registrado", true);
-            bundle.putString("contrasenya", "Hola");
+            bundle.putString("contraseña", "Hola");
             bundle.putString("matricula", "Es una prueba");
             i.putExtra("usuario", bundle);
             startActivity(i);
@@ -57,19 +63,28 @@ public class SessionActivity extends Activity {
                 String matricula_s = matricula.getText().toString();
                 String contraseña_s = contraseña.getText().toString();
 
-                if(UniversusBDDAdministrador.getUsuario( getApplicationContext(),
-                        matricula_s, contraseña_s) == null){
-                    Toast.makeText(v.getContext(), "Usuario no registrado",
-                            Toast.LENGTH_SHORT).show();
-                }else{
-                    Intent i = new Intent(getApplicationContext(), Main.class);
+                if(!matricula_s.isEmpty() && !contraseña_s.isEmpty())
+                {
+                    /*Escritura de preferencias compartidas*/
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.putString("matricula", matricula_s);
+                    editor.putString("contraseña", contraseña_s);
+                    editor.commit();
 
-                    Bundle bundle = new Bundle();
-                    bundle.putString("matricula", matricula_s);
-                    bundle.putString("contraseña", contraseña_s);
-                    bundle.putBoolean("registrado", true);
-                    i.putExtra("usuario", bundle);
-                    startActivity(i);
+                    if(UniversusBDDAdministrador.getUsuario( getApplicationContext(),
+                            matricula_s, contraseña_s) == null){
+                        Toast.makeText(v.getContext(), "Usuario no registrado",
+                                Toast.LENGTH_SHORT).show();
+                    }else{
+                        Intent i = new Intent(getApplicationContext(), Main.class);
+
+                        Bundle bundle = new Bundle();
+                        bundle.putString("matricula", matricula_s);
+                        bundle.putString("contraseña", contraseña_s);
+                        bundle.putBoolean("registrado", true);
+                        i.putExtra("usuario", bundle);
+                        startActivity(i);
+                    }
                 }
             }
         });
@@ -89,6 +104,12 @@ public class SessionActivity extends Activity {
     }
 
     private boolean usuarioEstaLogueago(){
-        return false;
+        prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+        matriculaPref = prefs.getString("matriula", "");
+        contraseñaPref = prefs.getString("contraseña", "");
+        if(!matriculaPref.isEmpty() && !contraseñaPref.isEmpty())
+            return true;
+        else
+            return false;
     }
 }

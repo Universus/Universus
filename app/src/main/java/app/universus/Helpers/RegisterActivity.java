@@ -52,18 +52,33 @@ public class RegisterActivity extends Activity {
                 String confir_contra = confContraseña.getText().toString();
                 String email = correo.getText().toString();
 
-                if(!matricula_s.isEmpty() || !nombre_s.isEmpty()){
-                    Intent i = new Intent(getApplicationContext(), Main.class);
+                if(!matricula_s.isEmpty() && !nombre_s.isEmpty()){
 
-                    Bundle bundle = new Bundle();
-                    bundle.putString("matricula", matricula_s);
-                    bundle.putString("nombre", nombre_s);
-                    bundle.putString("contraseña", contraseñ_s);
-                    bundle.putString("correo", email);
-                    bundle.putBoolean("registrado", false);
-                    i.putExtra("usuario", bundle);
-                    startActivity(i);
+                    if(!contraseñ_s.isEmpty() && !confir_contra.isEmpty())
+                    {
+                        if( contraseñ_s.contentEquals( confir_contra ) ) {
+                            Intent i = new Intent(getApplicationContext(), Main.class);
 
+                            Bundle bundle = new Bundle();
+                            bundle.putString("matricula", matricula_s);
+                            bundle.putString("nombre", nombre_s);
+                            bundle.putString("contraseña", contraseñ_s);
+                            bundle.putString("correo", email);
+                            bundle.putBoolean("registrado", false);
+                            i.putExtra("usuario", bundle);
+                            startActivity(i);
+                        }
+                        else
+                        {
+                            Toast.makeText(v.getContext(), "Las contraseñas no coinciden",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    else
+                    {
+                        Toast.makeText(v.getContext(), "Falatan campos por reyenar",
+                                Toast.LENGTH_SHORT).show();
+                    }
                 }else{
                     Toast.makeText(v.getContext(), "Falatan campos por reyenar",
                             Toast.LENGTH_SHORT).show();
