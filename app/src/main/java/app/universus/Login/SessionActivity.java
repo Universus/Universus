@@ -2,7 +2,9 @@ package app.universus.Session;
 
 import android.app.Activity;
 import android.app.LauncherActivity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -41,6 +43,12 @@ public class SessionActivity extends Activity {
             {
                 matricula.getText();
                 contraseña.getText();
+
+                SharedPreferences shrPreferen = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = shrPreferen.edit();
+                editor.putString("matricula", matricula.getText());
+                editor.putString("contraseña", contraseña.getText());
+                editor.commit();
             }
         });
 
