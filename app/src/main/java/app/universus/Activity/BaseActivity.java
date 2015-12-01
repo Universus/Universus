@@ -12,6 +12,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import app.universus.Helpers.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -91,6 +92,10 @@ public class  BaseActivity  extends  ActionBarActivity {
     }
 
     public void selectItem(int position) {
+        if(position == 3) {
+            Intent i = new Intent(this, SessionActivity.class);
+            startActivity(i);
+        }
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.content_frame,
                 usuarioController.getSeleccion(position)

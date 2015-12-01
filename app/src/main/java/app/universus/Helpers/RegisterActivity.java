@@ -1,4 +1,4 @@
-package app.universus.Session;
+package app.universus.Helpers;
 
 import android.app.Activity;
 import android.os.Bundle;
