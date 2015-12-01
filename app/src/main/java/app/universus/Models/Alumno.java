@@ -6,7 +6,7 @@ import java.util.List;
 public class Alumno extends Usuario{
 
     private int edad;
-    private List<Profesor> profesores;
+    private List<Usuario> profesores;
     
     public Alumno(String al, String cont, String mat, String ema){
         super(al, cont, mat, ema);
@@ -35,7 +35,7 @@ public class Alumno extends Usuario{
         profesores.add(p);
     }
 
-    public List<Profesor> getProfesores(){
+    public List<Usuario> getProfesores(){
         return profesores;
     }
 

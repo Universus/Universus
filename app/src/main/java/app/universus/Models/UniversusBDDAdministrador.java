@@ -172,7 +172,12 @@ public class UniversusBDDAdministrador {
         return nuevo;
     }
 
-    public static List<Profesor> getProfesores(){
-        return new ArrayList<Profesor>();
+    public static List<Usuario> getProfesores(Context context){
+        UniversusBDDAdministrador admin = new UniversusBDDAdministrador(context);
+        RealmResults<ProfesorModelo> r = admin.profesoresRealm.where(ProfesorModelo.class).findAll();
+        List<Usuario> usuarios = new ArrayList<>();
+        for(ProfesorModelo object : r)
+            usuarios.add(admin.convertirProfesor(object, context));
+        return usuarios;
     }
 }

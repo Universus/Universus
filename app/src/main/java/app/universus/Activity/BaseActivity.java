@@ -97,7 +97,7 @@ public class  BaseActivity  extends  ActionBarActivity {
         }
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.content_frame,
-                usuarioController.getSeleccion(position)
+                usuarioController.getSeleccion(position, getApplicationContext())
         ).commit();
         drawerList.setItemChecked(position, true);
         setTitle(etiquetas.get(position).getDescipcion());

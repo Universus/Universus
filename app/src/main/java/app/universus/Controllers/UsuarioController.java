@@ -1,5 +1,6 @@
 package app.universus.Controllers;
 
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 
@@ -32,10 +33,10 @@ public class UsuarioController {
         return AlumnoController.getOpcionesMenu();
     }
 
-    public Fragment getSeleccion(int posicion){
+    public Fragment getSeleccion(int posicion, Context context){
         if(usuario != null){
             if(usuario instanceof Alumno)
-                return AlumnoController.getSeleccion(posicion, usuario);
+                return AlumnoController.getSeleccion(posicion, usuario, context);
             if(usuario instanceof Profesor);
                 return ProfesorController.getSeleccion(posicion, usuario);
         }

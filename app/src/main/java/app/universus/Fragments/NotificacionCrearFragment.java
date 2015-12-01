@@ -71,7 +71,8 @@ public class NotificacionCrearFragment extends Fragment implements View.OnClickL
 
     private void cambiarFragment(int posicion){
         FragmentManager fragmentManager = getFragmentManager();
-        Fragment fragment = usuario instanceof Alumno? AlumnoController.getSeleccion(posicion, usuario) : ProfesorController.getSeleccion(posicion, usuario);
+        Fragment fragment = usuario instanceof Alumno? AlumnoController.getSeleccion(posicion, usuario, getContext())
+                : ProfesorController.getSeleccion(posicion, usuario);
         fragmentManager.beginTransaction().replace(R.id.content_frame,
                 fragment
 
@@ -110,7 +111,7 @@ public class NotificacionCrearFragment extends Fragment implements View.OnClickL
                             Toast.LENGTH_SHORT).show();
 
                     UniversusBDDAdministrador.guardar(nueva, v.getContext());
-                    cambiarFragment(0);
+                    cambiarFragment(1);
                 }
                 break;
         }

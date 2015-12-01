@@ -83,4 +83,5 @@ public class Usuario{
 	public void setNotificaciones(List<Notificacion> lista){
 		this.notificaciones = lista;
 	}
+	
 }

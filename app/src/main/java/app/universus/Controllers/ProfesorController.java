@@ -37,14 +37,14 @@ public class ProfesorController {
         args.putString(Articulo.TITULO, getOpcionesMenu().get(posicion).getDescipcion());
 
         switch(posicion){
-            case 0:
+            case 1:
                 HomeFragment home = HomeFragment.newInstance(args, usuario);
                 return home;
-            case 1:
+            case 2:
                 ProfesorPerfilFragment alumnoPerfilFragment =
                         ProfesorPerfilFragment.newInstance(args, (Profesor) usuario);
                 return alumnoPerfilFragment;
-            case 2:
+            case 3:
                 Grupo grupo = new Grupo("Prueba", R.drawable.diana_1);
 
                 Alumno alumno1 = new Alumno("Pepe", "1234", "1234", "12341");
@@ -60,7 +60,7 @@ public class ProfesorController {
                         = GrupoFragment.newInstance(args, grupo);
                 return grupoFragment;
 
-            case 3:
+            case 4:
                 NotificacionCrearFragment fragment = NotificacionCrearFragment.newInstance(args, usuario);
                 return fragment;
 
