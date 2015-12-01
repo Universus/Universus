@@ -37,7 +37,7 @@ public class UsuarioController {
             if(usuario instanceof Alumno)
                 return AlumnoController.getSeleccion(posicion, usuario);
             if(usuario instanceof Profesor);
-                return ProfesorController.getSeleccion(posicion);
+                return ProfesorController.getSeleccion(posicion, usuario);
         }
         Bundle args = new Bundle();
         args.putInt(Articulo.ARG_ARTICLES_NUMBER, posicion);

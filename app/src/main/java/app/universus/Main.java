@@ -76,7 +76,7 @@ public class  Main  extends BaseActivity{
         usuarioController = new UsuarioController();
         usuarioController.setUsuario(usuario);
         inicializaDrawer();
-        selectItem(0);
+        selectItem(1);
     }
 
 }

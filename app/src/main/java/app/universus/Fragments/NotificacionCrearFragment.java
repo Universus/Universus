@@ -71,7 +71,7 @@ public class NotificacionCrearFragment extends Fragment implements View.OnClickL
 
     private void cambiarFragment(int posicion){
         FragmentManager fragmentManager = getFragmentManager();
-        Fragment fragment = usuario instanceof Alumno? AlumnoController.getSeleccion(posicion, usuario) : ProfesorController.getSeleccion(posicion);
+        Fragment fragment = usuario instanceof Alumno? AlumnoController.getSeleccion(posicion, usuario) : ProfesorController.getSeleccion(posicion, usuario);
         fragmentManager.beginTransaction().replace(R.id.content_frame,
                 fragment
 

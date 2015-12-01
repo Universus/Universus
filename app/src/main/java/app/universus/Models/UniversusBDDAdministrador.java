@@ -23,6 +23,8 @@ public class UniversusBDDAdministrador {
     Realm profesoresRealm;
     Realm notificacionesRealm;
 
+    Context context;
+
     public  UniversusBDDAdministrador(Context context){
         RealmConfiguration config_alumnos = new RealmConfiguration.Builder(context)
             .name("alumnos_2.realm")
@@ -41,6 +43,8 @@ public class UniversusBDDAdministrador {
                 .schemaVersion(3)
                 .build();
         notificacionesRealm = Realm.getInstance(config_notificaciones);
+
+        this.context = context;
     }
 
     public static boolean guardar(Object objeto, Context context){
@@ -115,7 +119,7 @@ public class UniversusBDDAdministrador {
 
     public void guardarProfesor(Profesor alumno){
         profesoresRealm.beginTransaction();
-        ProfesorModelo alumnoModelo = alumnosRealm.createObject(ProfesorModelo.class);
+        ProfesorModelo alumnoModelo = profesoresRealm.createObject(ProfesorModelo.class);
         alumnoModelo.setAlias(alumno.getAlias());
         alumnoModelo.setContrasenya(alumno.getContrasenya());
         alumnoModelo.setEmail(alumno.getCorreo());
@@ -136,11 +140,8 @@ public class UniversusBDDAdministrador {
                  .equalTo("contrasenya", contraseña)
                  .equalTo("matricula", contraseña).findAll();
             if(r.isEmpty()) return null;
-            Alumno nuevo = new Alumno(r.first().getAlias(),
-                    r.first().getContrasenya(),r.first().getMatricula(),
-                    r.first().getEmail());
-            nuevo.setImagen(BitmapFactory.decodeResource(context.getResources(), R.drawable.diana_1));
-        return nuevo;
+
+        return convertirAlumno(r.first(), context);
     }
 
     public Profesor getProfesor(String matricula, String contraseña, Context context){
@@ -148,10 +149,30 @@ public class UniversusBDDAdministrador {
                 .equalTo("contrasenya", contraseña)
                 .equalTo("matricula", contraseña).findAll();
         if(r.isEmpty()) return null;
-        Profesor nuevo = new Profesor(r.first().getAlias(),
-                r.first().getContrasenya(),r.first().getMatricula(),
-                r.first().getEmail());
+
+        return convertirProfesor(r.first(), context);
+    }
+
+    private Alumno convertirAlumno(AlumnoModelo objeto, Context context){
+        Alumno nuevo = new Alumno(objeto.getAlias(),
+                objeto.getContrasenya(),objeto.getMatricula(),
+                objeto.getEmail());
+        for(ProfesorModelo m : objeto.getProfesores()){
+            nuevo.addProfesor(convertirProfesor(m, context));
+        }
         nuevo.setImagen(BitmapFactory.decodeResource(context.getResources(), R.drawable.diana_1));
         return nuevo;
+    }
+
+    private Profesor convertirProfesor(ProfesorModelo objeto, Context context){
+        Profesor nuevo = new Profesor(objeto.getAlias(),
+                objeto.getContrasenya(),objeto.getMatricula(),
+                objeto.getEmail());
+        nuevo.setImagen(BitmapFactory.decodeResource(context.getResources(), R.drawable.diana_1));
+        return nuevo;
+    }
+
+    public static List<Profesor> getProfesores(){
+        return new ArrayList<Profesor>();
     }
 }

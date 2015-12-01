@@ -91,7 +91,7 @@ public class  BaseActivity  extends  ActionBarActivity {
     }
 
     public void selectItem(int position) {
-        if(position == 3) {
+        if(position == 0) {
             Intent i = new Intent(this, SessionActivity.class);
             startActivity(i);
         }
