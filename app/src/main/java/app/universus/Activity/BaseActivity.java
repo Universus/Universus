@@ -63,7 +63,6 @@ public class  BaseActivity  extends  ActionBarActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
-
         drawerToggle = new ActionBarDrawerToggle(
                 this,
                 drawerLayout,

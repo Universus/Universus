@@ -1,11 +1,16 @@
 package app.universus.Models;
 
 import android.content.Context;
+import android.graphics.BitmapFactory;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import app.universus.Controllers.AlumnoController;
+import app.universus.RealmObjects.AlumnoModelo;
 import app.universus.RealmObjects.Notificacion;
+import app.universus.RealmObjects.ProfesorModelo;
+import app.universus.com.universus.R;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 import io.realm.RealmMigration;
@@ -41,8 +46,12 @@ public class UniversusBDDAdministrador {
     public static boolean guardar(Object objeto, Context context){
         if(objeto instanceof Notificacion)
             new UniversusBDDAdministrador(context).guardarNotificacion((Notificacion) objeto, context);
-        if(objeto instanceof Usuario)
-            new UniversusBDDAdministrador(context).guardarUsuario((Usuario) objeto, context);
+        if(objeto instanceof Alumno){
+            new UniversusBDDAdministrador(context).guardarAlumno((Alumno) objeto);
+        }
+        if(objeto instanceof Profesor){
+            new UniversusBDDAdministrador(context).guardarProfesor((Profesor) objeto);
+        }
         return true;
     }
 
@@ -61,6 +70,7 @@ public class UniversusBDDAdministrador {
         if (objecto instanceof Notificacion) {
             new UniversusBDDAdministrador(context).removerNotificacion((Notificacion) objecto, context);
         }
+
         return true;
     }
 
@@ -93,4 +103,55 @@ public class UniversusBDDAdministrador {
 
     }
 
+    public  void guardarAlumno(Alumno alumno){
+        alumnosRealm.beginTransaction();
+        AlumnoModelo alumnoModelo = alumnosRealm.createObject(AlumnoModelo.class);
+        alumnoModelo.setAlias(alumno.getAlias());
+        alumnoModelo.setContrasenya(alumno.getContrasenya());
+        alumnoModelo.setEmail(alumno.getCorreo());
+        alumnoModelo.setMatricula(alumno.getMatr());
+        alumnosRealm.commitTransaction();
+    }
+
+    public void guardarProfesor(Profesor alumno){
+        profesoresRealm.beginTransaction();
+        ProfesorModelo alumnoModelo = alumnosRealm.createObject(ProfesorModelo.class);
+        alumnoModelo.setAlias(alumno.getAlias());
+        alumnoModelo.setContrasenya(alumno.getContrasenya());
+        alumnoModelo.setEmail(alumno.getCorreo());
+        alumnoModelo.setMatricula(alumno.getMatr());
+        profesoresRealm.commitTransaction();
+    }
+
+    public static Usuario getUsuario(Context context, String matricula, String contraseña){
+        if(matricula.startsWith("1234")){
+            return new UniversusBDDAdministrador(context).getAlumno(matricula, contraseña, context);
+        }else{
+            return new UniversusBDDAdministrador(context).getProfesor( matricula, contraseña, context);
+        }
+    }
+
+    public Alumno getAlumno(String matricula, String contraseña, Context context){
+         RealmResults<AlumnoModelo> r = alumnosRealm.where(AlumnoModelo.class)
+                 .equalTo("contrasenya", contraseña)
+                 .equalTo("matricula", contraseña).findAll();
+            if(r.isEmpty()) return null;
+            Alumno nuevo = new Alumno(r.first().getAlias(),
+                    r.first().getContrasenya(),r.first().getMatricula(),
+                    r.first().getEmail());
+            nuevo.setImagen(BitmapFactory.decodeResource(context.getResources(), R.drawable.diana_1));
+        return nuevo;
+    }
+
+    public Profesor getProfesor(String matricula, String contraseña, Context context){
+        RealmResults<ProfesorModelo> r = profesoresRealm.where(ProfesorModelo.class)
+                .equalTo("contrasenya", contraseña)
+                .equalTo("matricula", contraseña).findAll();
+        if(r.isEmpty()) return null;
+        Profesor nuevo = new Profesor(r.first().getAlias(),
+                r.first().getContrasenya(),r.first().getMatricula(),
+                r.first().getEmail());
+        nuevo.setImagen(BitmapFactory.decodeResource(context.getResources(), R.drawable.diana_1));
+        return nuevo;
+    }
 }

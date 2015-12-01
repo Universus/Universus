@@ -10,6 +10,8 @@ import java.util.List;
 
 import app.universus.Activity.BaseActivity;
 import app.universus.Controllers.ProfesorController;
+import app.universus.Models.Alumno;
+import app.universus.Models.Profesor;
 import app.universus.RealmObjects.Notificacion;
 import app.universus.Controllers.AlumnoController;
 import app.universus.Controllers.UsuarioController;
@@ -35,7 +37,37 @@ public class  Main  extends BaseActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        usuario = AlumnoController.getDefault(); //AlumnoController.getDefault();
+
+        Bundle bundle = getIntent().getExtras().getBundle("usuario");
+        boolean registrado = bundle.getBoolean("registrado");
+        if(!registrado){
+            String matricula = bundle.getString("matricula");
+            if(matricula.startsWith("1234")){
+                usuario = new Alumno(
+                        bundle.getString("nombre"),
+                        bundle.getString("contraseña"),
+                        bundle.getString("matricula"),
+                        bundle.getString("correo")
+                );
+            }else{
+                usuario = new Profesor(
+                        bundle.getString("nombre"),
+                        bundle.getString("contraseña"),
+                        bundle.getString("matricula"),
+                        bundle.getString("correo")
+                );
+            }
+
+            UniversusBDDAdministrador.guardar(usuario, getApplicationContext());
+        }
+        else{
+            usuario = UniversusBDDAdministrador.getUsuario(
+                    getApplicationContext(),
+                    bundle.getString("contraseña"),
+                    bundle.getString("matricula")
+            );
+        }
+
 
         List<Notificacion> r = new UniversusBDDAdministrador(getApplicationContext())
                 .getNotificaciones();

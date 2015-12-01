@@ -23,7 +23,6 @@ public class AlumnoPerfilFragment extends Fragment{
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.alumno, container, false);
         TextView nombre = (TextView) rootView.findViewById(R.id.profe);
-
         nombre.setText(alumno.getAlias());
         return rootView;
     }

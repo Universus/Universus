@@ -57,7 +57,8 @@ public class SessionActivity extends Activity {
                 String matricula_s = matricula.getText().toString();
                 String contraseña_s = contraseña.getText().toString();
 
-                if(UniversusBDDAdministrador.getUsuario(matricula_s, contraseña_s) == null){
+                if(UniversusBDDAdministrador.getUsuario( getApplicationContext(),
+                        matricula_s, contraseña_s) == null){
                     Toast.makeText(v.getContext(), "Usuario no registrado",
                             Toast.LENGTH_SHORT).show();
                 }else{
