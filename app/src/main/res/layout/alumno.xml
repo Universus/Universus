@@ -21,21 +21,4 @@
         android:typeface="sans"
         />
 
-
-    <TextView
-        android:id="@+id/cubo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Comentar un profesor"
-        android:typeface="sans"
-        />
-
-
-
-  <EditText
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:inputType="text"/>
-
-
 </LinearLayout>

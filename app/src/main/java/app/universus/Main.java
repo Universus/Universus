@@ -35,7 +35,7 @@ public class  Main  extends BaseActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        usuario = ProfesorController.getDefault(); //AlumnoController.getDefault();
+        usuario = AlumnoController.getDefault(); //AlumnoController.getDefault();
 
         List<Notificacion> r = new UniversusBDDAdministrador(getApplicationContext())
                 .getNotificaciones();
