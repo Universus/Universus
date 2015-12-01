@@ -17,6 +17,6 @@
     <!-- ActionBar -->
     <color name="action_bar_color">#4A148C</color>
     <!-- Drawers -->
-    <color name="drawer_back_ground">#7B1FA2</color>
+    <color name="drawer_back_ground">#4A148C</color>
     <color name="drawer_txt_color">#BA68C8</color>
 </resources>

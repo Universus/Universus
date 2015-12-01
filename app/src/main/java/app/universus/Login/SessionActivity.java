@@ -44,11 +44,7 @@ public class SessionActivity extends Activity {
                 matricula.getText();
                 contraseña.getText();
 
-                SharedPreferences shrPreferen = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = shrPreferen.edit();
-                editor.putString("matricula", matricula.getText());
-                editor.putString("contraseña", contraseña.getText());
-                editor.commit();
+
             }
         });
 
