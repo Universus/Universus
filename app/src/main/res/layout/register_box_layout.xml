@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/register_box"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/general_translucent_background"
+    android:orientation="vertical"
+    android:layout_centerInParent="true"
+    android:layout_margin="6dp"
+    android:padding="6dp">
+
+    <EditText
+        android:id="@+id/r_txt_nombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/nombre"/>
+    <EditText
+        android:id="@+id/r_txt_matricula"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/matricula"
+        android:layout_below="@id/r_txt_nombre"
+        android:inputType="number"/>
+    <EditText
+        android:id="@+id/r_txt_correo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/correo"
+        android:layout_below="@id/r_txt_matricula"
+        android:inputType="textEmailAddress"/>
+    <EditText
+        android:id="@+id/r_txt_telefono"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/cel"
+        android:layout_below="@id/r_txt_correo"
+        android:inputType="phone"/>
+    <EditText
+        android:id="@+id/r_txt_contraseña"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/contraseña"
+        android:layout_below="@id/r_txt_telefono"
+        android:password="true"/>
+    <EditText
+        android:id="@+id/r_conf_txt_contraseña"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_conf_contraseña"
+        android:layout_below="@id/r_txt_contraseña"
+        android:password="true"/>
+
+</RelativeLayout>

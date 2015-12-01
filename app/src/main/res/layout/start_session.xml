@@ -1,0 +1,43 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/session_layout"
+    android:background="@drawable/start_session_2"
+    android:orientation="vertical"
+    android:padding="6px">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome"
+        android:textColor="@color/text_color_white"
+        android:textSize="30sp"
+        android:layout_centerInParent="true"
+        android:layout_above="@id/access_box"/>
+
+
+    <include layout="@layout/access_box_layout"/>
+
+
+    <Button
+        android:id="@+id/bttn_ingresar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btt_access"
+        android:textColor="@color/text_color_white"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/access_box"/>
+
+    <Button
+        android:id="@+id/bttn_registrarse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btt_register"
+        android:textColor="@color/text_color_white"
+        android:background="@null"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"/>
+
+</RelativeLayout>
