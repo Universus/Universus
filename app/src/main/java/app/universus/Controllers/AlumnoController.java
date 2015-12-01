@@ -33,9 +33,9 @@ public class AlumnoController {
     public static List<Elemento> getOpcionesMenu(){
         List<Elemento> menu = new ArrayList<Elemento>();
         menu.add(new Elemento("Home", R.drawable.home_icono));
-        menu.add(new Elemento("Cursos", R.drawable.materia_icono));
-        menu.add(new Elemento("Perfil", R.drawable.perfil_icono));
-        menu.add(new Elemento("SOLO ALUMNOS", R.drawable.importante_icono));
+        menu.add(new Elemento("Perfil", R.drawable.materia_icono));
+        menu.add(new Elemento("Cursos", R.drawable.perfil_icono));
+        menu.add(new Elemento("Profesores", R.drawable.importante_icono));
         return menu;
     }
 
@@ -49,9 +49,9 @@ public class AlumnoController {
                 HomeFragment home = HomeFragment.newInstance(args, usuario);
                 return home;
             case 1:
-                NotificacionCrearFragment crearnotificacion =
-                        NotificacionCrearFragment.newInstance(args, usuario);
-                return crearnotificacion;
+                AlumnoPerfilFragment alumnoPerfilFragment =
+                        AlumnoPerfilFragment.newInstance(args, (Alumno) usuario);
+                return alumnoPerfilFragment;
             case 2:
                 Grupo grupo = new Grupo("Prueba", R.drawable.diana_1);
 
@@ -68,10 +68,11 @@ public class AlumnoController {
                 GrupoFragment grupoFragment =
                         GrupoFragment.newInstance(args, grupo);
                 return grupoFragment;
-            case 3:
-                AlumnoPerfilFragment alumnoPerfilFragment =
-                        AlumnoPerfilFragment.newInstance(args, (Alumno) usuario);
-                return alumnoPerfilFragment;
+
+            case 7:
+                NotificacionCrearFragment fragment = NotificacionCrearFragment.newInstance(args, usuario);
+                return fragment;
+
             default:
                 Articulo nuevo = Articulo.newInstance(args);
                 return nuevo;

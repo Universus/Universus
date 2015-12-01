@@ -20,6 +20,7 @@ public  class Notificacion extends RealmObject {
     private String descripcion;
     private int icono;
     private String lugar;
+    private String autor;
 
     public Notificacion(){
 
@@ -41,7 +42,13 @@ public  class Notificacion extends RealmObject {
         return lugar;
     }
 
+    public String getAutor() {
+        return autor;
+    }
 
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
 
     public void setImagen(int imagen) {
         this.imagen = imagen;

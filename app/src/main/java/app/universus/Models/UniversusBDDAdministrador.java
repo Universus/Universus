@@ -2,8 +2,13 @@ package app.universus.Models;
 
 import android.content.Context;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import app.universus.RealmObjects.Notificacion;
 import io.realm.Realm;
+import io.realm.RealmConfiguration;
+import io.realm.RealmMigration;
 import io.realm.RealmObject;
 import io.realm.RealmResults;
 
@@ -14,9 +19,23 @@ public class UniversusBDDAdministrador {
     Realm notificacionesRealm;
 
     public  UniversusBDDAdministrador(Context context){
-        alumnosRealm = Realm.getInstance(context, "alumnos.realm");
-        profesoresRealm = Realm.getInstance(context, "profesores.realm");
-        notificacionesRealm = Realm.getInstance(context, "notificaciones.realm");
+        RealmConfiguration config_alumnos = new RealmConfiguration.Builder(context)
+            .name("alumnos_2.realm")
+            .schemaVersion(3)
+            .build();
+        alumnosRealm = Realm.getInstance(config_alumnos);
+
+        RealmConfiguration config_profesores = new RealmConfiguration.Builder(context)
+                .name("profesores_2.realm")
+                .schemaVersion(3)
+                .build();
+        profesoresRealm = Realm.getInstance(config_profesores);
+
+        RealmConfiguration config_notificaciones= new RealmConfiguration.Builder(context)
+                .name("notificacion_2.realm")
+                .schemaVersion(3)
+                .build();
+        notificacionesRealm = Realm.getInstance(config_notificaciones);
     }
 
     public static boolean guardar(Object objeto, Context context){
@@ -62,8 +81,12 @@ public class UniversusBDDAdministrador {
         return true;
     }
 
-    public RealmResults<Notificacion> getNotificaciones(){
-        return notificacionesRealm.where(Notificacion.class).findAll();
+    public List<Notificacion> getNotificaciones(){
+        RealmResults<Notificacion> r = notificacionesRealm.where(Notificacion.class).findAll();
+        List<Notificacion> resultado = new ArrayList<>();
+        for(Notificacion nueva : r)
+            resultado.add(nueva);
+        return resultado;
     }
 
     public void guardarUsuario(Usuario usuario, Context context){

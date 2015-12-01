@@ -16,9 +16,8 @@ public class ProfesorController {
     public static List<Elemento> getOpcionesMenu(){
         List<Elemento> menu = new ArrayList<Elemento>();
         menu.add(new Elemento("Home", R.drawable.home_icono));
-        menu.add(new Elemento("Cursos", R.drawable.materia_icono));
         menu.add(new Elemento("Perfil", R.drawable.profesor_icono));
-        menu.add(new Elemento("SOLO PROFESOR", R.drawable.recordatorio_icono));
+        menu.add(new Elemento("Cursos", R.drawable.materia_icono));
         return menu;
     }
 

@@ -79,4 +79,8 @@ public class Usuario{
 	public List<Notificacion> getNotificaciones(){
 		return notificaciones;
 	}
+
+	public void setNotificaciones(List<Notificacion> lista){
+		this.notificaciones = lista;
+	}
 }

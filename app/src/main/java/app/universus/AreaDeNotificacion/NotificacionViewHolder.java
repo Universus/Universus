@@ -6,6 +6,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import app.universus.RealmObjects.Notificacion;
 import app.universus.com.universus.R;
 
@@ -15,6 +17,7 @@ public class NotificacionViewHolder extends RecyclerView.ViewHolder {
     public ImageButton icono;
     public TextView lugar;
     public ImageView imagenView;
+    public TextView autor;
     public View view;
     public Notificacion notificacion;
 
@@ -25,5 +28,6 @@ public class NotificacionViewHolder extends RecyclerView.ViewHolder {
         descripcion = (TextView) v.findViewById(R.id.notificacion_item__descripcion);
         icono =  (ImageButton) v.findViewById(R.id.notificacion_item__icono);
         lugar = (TextView) v.findViewById(R.id.notificacion_item__lugar);
+        autor  = (TextView) v.findViewById(R.id.notificacion_item__autor);
     }
 }
