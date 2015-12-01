@@ -14,6 +14,7 @@
     <!-- TextColor -->
     <color name="text_color_purple">#BA68C8</color>
     <color name="text_color_white">#FFFF</color>
+    <color name="text_color_darker_purple">#6A1B9A</color>
     <!-- ActionBar -->
     <color name="action_bar_color">#4A148C</color>
     <!-- Drawers -->

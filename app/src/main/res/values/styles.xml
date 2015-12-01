@@ -5,12 +5,18 @@
     </style>
 
     <!-- Our app theme -->
-    <style name="UniversusTheme" parent="Theme.AppCompat.Light">
+    <style name="UniversusTheme" parent="@style/Theme.AppCompat.Light">
         <item name="colorPrimary">@color/action_bar_color</item> <!-- ActionBar -->
+        <item name="actionBarStyle">@style/UniversusActionBar</item>
+        <item name="android:windowBackground">@color/general_background</item>
         <item name="colorAccent">@color/accent_color</item>
         <item name="colorControlHighlight">@color/highligh_color</item>
-        <item name="android:windowBackground">@color/general_background</item>
-        <item name="android:titleTextStyle">@color/text_color_white</item>
+    </style>
+
+    <style name="UniversusActionBar" parent="@style/Widget.AppCompat.ActionBar.Solid">
+        <item name="titleTextStyle">@style/UniversusTextStyle</item>
+    </style>
+    <style name="UniversusTextStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
         <item name="android:textColor">@color/text_color_white</item>
     </style>
 
