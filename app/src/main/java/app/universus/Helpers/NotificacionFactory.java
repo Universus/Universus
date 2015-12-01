@@ -5,14 +5,11 @@ import java.util.List;
 
 import app.universus.RealmObjects.Notificacion;
 import app.universus.com.universus.R;
-import io.realm.annotations.Ignore;
 
 public class NotificacionFactory {
-    @Ignore
+
     public static final int IMPORTANTE = R.drawable.estandar_icono;
-    @Ignore
     public static final int ESTANDAR = R.drawable.importante_icono;
-    @Ignore
     public static final int RECORDATORIO = R.drawable.recordatorio_icono;
 
 
@@ -25,7 +22,6 @@ public class NotificacionFactory {
         return etiquetas;
     }
 
-    @Ignore
     public static  int getImportanciaIcono(int posicion){
         switch (posicion){
             case 0:
@@ -39,13 +35,14 @@ public class NotificacionFactory {
         }
     }
 
-    public static Notificacion newInstance(int imagen, String descripcion, int icono, String lugar){
+    public static Notificacion newInstance(int imagen, String descripcion, int icono, String lugar, String autor){
         Notificacion nueva = new Notificacion();
 
         nueva.setImagen(imagen);
         nueva.setDescripcion(descripcion);
         nueva.setIcono(icono);
         nueva.setLugar(lugar);
+        nueva.setAutor(autor);
         return nueva;
     }
 }

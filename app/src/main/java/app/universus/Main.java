@@ -5,7 +5,11 @@ import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import app.universus.Activity.BaseActivity;
+import app.universus.Controllers.ProfesorController;
 import app.universus.RealmObjects.Notificacion;
 import app.universus.Controllers.AlumnoController;
 import app.universus.Controllers.UsuarioController;
@@ -31,15 +35,12 @@ public class  Main  extends BaseActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        usuario = AlumnoController.getDefault();
+        usuario = ProfesorController.getDefault(); //AlumnoController.getDefault();
 
-        RealmResults<Notificacion> r = new UniversusBDDAdministrador(getApplicationContext())
+        List<Notificacion> r = new UniversusBDDAdministrador(getApplicationContext())
                 .getNotificaciones();
 
-        for(Notificacion nueva : r){
-            usuario.addNotificacion(nueva);
-        }
-
+        usuario.setNotificaciones(r);
         usuarioController = new UsuarioController();
         usuarioController.setUsuario(usuario);
         inicializaDrawer();

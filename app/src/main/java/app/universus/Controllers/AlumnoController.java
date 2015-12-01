@@ -33,9 +33,9 @@ public class AlumnoController {
     public static List<Elemento> getOpcionesMenu(){
         List<Elemento> menu = new ArrayList<Elemento>();
         menu.add(new Elemento("Home", R.drawable.home_icono));
-        menu.add(new Elemento("Cursos", R.drawable.materia_icono));
-        menu.add(new Elemento("Perfil", R.drawable.perfil_icono));
-        menu.add(new Elemento("SOLO ALUMNOS", R.drawable.importante_icono));
+        menu.add(new Elemento("Perfil", R.drawable.materia_icono));
+        menu.add(new Elemento("Cursos", R.drawable.perfil_icono));
+        menu.add(new Elemento("Profesores", R.drawable.importante_icono));
         return menu;
     }
 

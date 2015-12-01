@@ -52,6 +52,10 @@ public class NotificacionAdapter extends RecyclerView.Adapter<NotificacionViewHo
 
         if(items.get(i).getLugar() != null)
             viewHolder.lugar.setText("Lugar: " + items.get(i).getLugar());
+
+        if(items.get(i).getAutor() != null)
+            viewHolder.autor.setText("Autor: " + items.get(i).getAutor());
+
         viewHolder.notificacion = items.get(i);
     }
 

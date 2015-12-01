@@ -26,17 +26,17 @@ public class AreaDeNotificacion extends ActionBarActivity{
 
         List<Notificacion> items = new ArrayList<Notificacion>();
         items.add(NotificacionFactory.newInstance(R.drawable.diana_1,
-                "Entregar libro", NotificacionFactory.IMPORTANTE, "Biblioteca"));
+                "Entregar libro", NotificacionFactory.IMPORTANTE, "Biblioteca", "Victor"));
         items.add(NotificacionFactory.newInstance(R.drawable.riven_1,
-                "Ver Porno", NotificacionFactory.IMPORTANTE, "Interner"));
+                "Ver Porno", NotificacionFactory.IMPORTANTE, "Interner", "Victor"));
         items.add(NotificacionFactory.newInstance(R.drawable.leona_1,
-                "Faltar a progra", NotificacionFactory.ESTANDAR, "CU"));
+                "Faltar a progra", NotificacionFactory.ESTANDAR, "CU", "Juanjo"));
         items.add(NotificacionFactory.newInstance(R.drawable.leona_2,
-                "Vender tacos", NotificacionFactory.RECORDATORIO, "CU"));
+                "Vender tacos", NotificacionFactory.RECORDATORIO, "CU", "Nadie"));
         items.add(NotificacionFactory.newInstance( R.drawable.diana_1,
-                "Comprar coca a Victor", NotificacionFactory.IMPORTANTE, "Tienda o OXXO"));
+                "Comprar coca a Victor", NotificacionFactory.IMPORTANTE, "Tienda o OXXO", "Ja puto"));
         items.add(NotificacionFactory.newInstance(R.drawable.diana_1,
-                "Comprar manga", NotificacionFactory.IMPORTANTE, "No se U.U"));
+                "Comprar manga", NotificacionFactory.IMPORTANTE, "No se U.U", "No se que poner"));
 
 
         recycler = (RecyclerView) findViewById(R.id.area_de_notificacion);

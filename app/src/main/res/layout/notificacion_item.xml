@@ -30,9 +30,17 @@
             android:layout_height="match_parent"
             android:id = "@+id/notificacion_item__lugar"
             android:layout_below="@+id/notificacion_item__descripcion"
-            android:layout_alignParentBottom="true"
             android:layout_alignLeft="@+id/notificacion_item__descripcion"
             android:layout_alignStart="@+id/notificacion_item__descripcion" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Es una prueba"
+            android:id="@+id/notificacion_item__autor"
+            android:layout_below="@+id/notificacion_item__imagen"
+            android:layout_toLeftOf="@+id/notificacion_item__lugar"
+            android:layout_toStartOf="@+id/notificacion_item__lugar" />
 
         <ImageButton
             android:layout_width="45dp"

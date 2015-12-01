@@ -103,7 +103,7 @@ public class NotificacionCrearFragment extends Fragment implements View.OnClickL
 
                     Notificacion nueva = NotificacionFactory.newInstance(
                             NotificacionFactory.getImportanciaIcono(posicionSeleccion), descripcion,
-                            R.drawable.diana_1 ,lugar);
+                            R.drawable.diana_1 ,lugar, usuario.getAlias());
 
                     usuario.addNotificacion(nueva);
                     Toast.makeText(v.getContext(), "Notificacion enviada",
